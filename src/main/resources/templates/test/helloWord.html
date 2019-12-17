@@ -6,10 +6,14 @@
 </head>
 <body>
 hello word1
+<span>dd</span>
 <script src="webjars/jquery/2.1.1/jquery.min.js"></script>
 <script src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script>
-
-
+$.post("/singer/save",{
+    name: 'qiezi',
+},function (rep) {
+    alert(rep.singerid);
+})
 </script>
 </body>
