@@ -1,5 +1,6 @@
 package com.cs.music.security;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -16,16 +17,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Resource
     private UserDetailsService userDetailsService;
+    @Value("${cs.music.file.static-access-path:''}")
+    public String staticAccessPath;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 //static resources configuration
-                .antMatchers("/resources/**", "/webjars/**", "/img/**","/music/**").permitAll()
+                .antMatchers("/resources/**", "/webjars/**", "/img/**", "/music/**").permitAll()
                 //login page and registration end-point
                 .antMatchers("/login", "/registration").permitAll()
                 //开放页面
-                .antMatchers("/test/**", "/view/**").permitAll()
+                .antMatchers(staticAccessPath, "/mediafile/**", "/file/**", "/public/**", "**/public/**", "/test/**", "/view/**").permitAll()
                 //all other requests
                 .anyRequest().authenticated()
                 .and()

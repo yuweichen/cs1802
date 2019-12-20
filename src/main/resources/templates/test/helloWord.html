@@ -1,19 +1,20 @@
-<!DOCTYPE html>
 <html >
 <head>
     <title>hello word</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
 hello word1
 <span>dd</span>
-<script src="webjars/jquery/2.1.1/jquery.min.js"></script>
-<script src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script>
-$.post("/singer/save",{
-    name: 'qiezi',
-},function (rep) {
-    alert(rep.singerid);
-})
+<div id="myElement"></div>
+<script src="/webjars/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.jwplayer.com/libraries/O7kJ4VW0.js"></script>
+<!--<script src="/webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>-->
+<script >
+    jwplayer("myElement").setup({
+        width:500,
+        height:50,
+        file: '/fileRedirect/default/xxx.mp3'
+    });
 </script>
 </body>
+</html>
