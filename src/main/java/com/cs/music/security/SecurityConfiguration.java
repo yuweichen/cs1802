@@ -24,7 +24,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 //static resources configuration
-                .antMatchers("/resources/**", "/webjars/**", "/img/**", "/music/**").permitAll()
+                .antMatchers("/resources/**", "/static/**", "/webjars/**", "/img/**", "/music/**").permitAll()
                 //login page and registration end-point
                 .antMatchers("/login", "/registration").permitAll()
                 //开放页面

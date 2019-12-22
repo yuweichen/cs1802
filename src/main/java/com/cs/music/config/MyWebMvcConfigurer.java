@@ -24,5 +24,6 @@ public class MyWebMvcConfigurer implements WebMvcConfigurer {
         //staticAccessPath    /fileRedirect/**   D:\cs\music\media
         //  http://127.0.0.1:8080/fileRedirect/default/diegobrando.jpg  D:\cs\music\media\default\diegobrando.jpg
         registry.addResourceHandler(staticAccessPath).addResourceLocations("file:" + fileDir);
+        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
     }
 }

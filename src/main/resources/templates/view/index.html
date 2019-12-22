@@ -1,15 +1,43 @@
-<!DOCTYPE html>
 <html>
 <head>
     <title>cs-music</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <base href="/">
 </head>
 <body>
-index 页面1
-<script src="webjars/jquery/2.1.1/jquery.min.js"></script>
-<script src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<div id="header">头部</div>
+<div id="main">
+    <a class="sing"
+       data-src="/fileRedirect/default/Ruelle - Madness.mp3"
+       data-cover="/static/images/Cover.jpg"
+       data-title="Ruelle - Madness"
+    >我要听</a>
+</div>
+<div id="footer">脚步</div>
+<div id="player">播放器</div>
+<script src="/webjars/jquery/2.1.1/jquery.min.js"></script>
+<script src="/static/js/home.js"></script>
+<!--<script src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>-->
+
 <script>
+
+    var audioFn;
+</script>
+<script>
+    $(function () {
+        $('#player').load("/view/playerIndex");
+
+        $('.sing').click(function () {
+            /* 向歌单中添加新曲目，第二个参数true为新增后立即播放该曲目，false则不播放 */
+            audioFn.newSong({
+                'cover': $(this).data("cover"),
+                'src': $(this).data("src"),
+                'title': $(this).data("title")
+            }, true);
+        })
+    })
 
 
 </script>
 </body>
+</html>

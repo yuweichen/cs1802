@@ -20,4 +20,9 @@ public class ViewController {
     public String index() {
         return "view/index";
     }
+
+    @GetMapping("playerIndex")
+    public String playerIndex() {
+        return "view/player/index";
+    }
 }
